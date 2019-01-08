@@ -6,17 +6,17 @@
 class timer {
 public:
 	timer() : t1(std::chrono::high_resolution_clock::now()) {}
-	float_t elapsed() {
-		return std::chrono::duration_cast<std::chrono::duration<float_t>>(
+	double elapsed() {
+		return std::chrono::duration_cast<std::chrono::duration<double>>(
 			std::chrono::high_resolution_clock::now() - t1)
 			.count();
 	}
 	void restart() { t1 = std::chrono::high_resolution_clock::now(); }
 	void start() { t1 = std::chrono::high_resolution_clock::now(); }
 	void stop() { t2 = std::chrono::high_resolution_clock::now(); }
-	float_t total() {
+	double total() {
 		stop();
-		return std::chrono::duration_cast<std::chrono::duration<float_t>>(t2 - t1)
+		return std::chrono::duration_cast<std::chrono::duration<double>>(t2 - t1)
 			.count();
 	}
 	~timer() {}
